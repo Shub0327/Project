@@ -137,12 +137,12 @@ if(isset($_POST['update']))
         <title>PHP INSERT UPDATE DELETE SEARCH</title>
     </head>
     <body>
-        <form action="dashboard.php" method="post">
+        <!-- <form action="dashboard.php" method="post">
             <input type="number" name="id" placeholder="Id" value="<?php echo $id;?>"><br><br>
             <input type="text" name="name" placeholder="Full Name" value="<?php echo $name;?>"><br><br>
             <input type="text" name="post" placeholder="post" value="<?php echo $post;?>"><br><br>
             <input type="number" name="age" placeholder="Age" value="<?php echo $age;?>"><br><br>
-            <div>
+            <div> -->
                 <!-- Input For Add Values To Database-->
                 <input type="submit" name="insert" value="Add">
                 
@@ -156,6 +156,11 @@ if(isset($_POST['update']))
                 <input type="submit" name="search" value="Find">
             </div>
         </form>
+
+
+
+       
+
     </body>
 </html>
 
