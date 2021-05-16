@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>hii </title>
+	<title>teacher's data</title>
 </head>
 <body>
 
    <table>
-                    <tr>
-                        
-                        <th>id</th>
-                         <th>name</th>
-                          <th>post</th>
-                             <th>age</th>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Post</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
 
-                    </tr>
+
                     <?php
 
 

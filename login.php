@@ -3,11 +3,11 @@
 session_start();
 
 // check if the user is already logged in
-if(isset($_SESSION['username']))
-{
-    header("location: dashboard.html");
-    exit;
-}
+// if(isset($_SESSION['username']))
+// {
+//     header("location: dashboard.html");
+//     exit;
+// }
 require_once "config.php";
 
 $username = $password = "";
@@ -86,18 +86,16 @@ if(empty($err))
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
   <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item ">
+        <a class="nav-link" href="index.html">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="register.php">Register</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.php">Login</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="login.php">Login<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="logout.php">Logout</a>
-      </li>
+      
 
       
      
@@ -106,7 +104,7 @@ if(empty($err))
 </nav>
 
 <div class="container mt-4">
-<h3>Please Login Here:</h3>
+<h3>Login Here:</h3>
 <hr>
 
 <form action="" method="post">
