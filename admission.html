@@ -1,105 +1,236 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{
-  font-family: Calibri, Helvetica, sans-serif;
-  background-color: pink;
-}
-.container {
-    padding: 50px;
-  background-color: lightblue;
-}
-
-input[type=text], input[type=password], textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-input[type=text]:focus, input[type=password]:focus {
-  background-color: orange;
-  outline: none;
-}
- div {
-            padding: 10px 0;
-         }
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-.registerbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-.registerbtn:hover {
-  opacity: 1;
-}
-</style>
+	<title>Admission Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-<form>
-  <div class="container">
-  <center>  <h1> Saraswati Education Society's
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+						<center>  <h1> Saraswati Education Society's
               <br>New Blossoms English Medium School</h1> </center>
-              <center> <h2>Vinchur,Tal-Niphad,Dist-Nashik-422305</h2></center>
-              <center><h2> Admission Form</h2></center>
+              <center> 
+              	
+              	<h2>Vinchur,Tal-Niphad,Dist-Nashik-422305</h2></center>
+              <center>
+              	<br>
+              	<h2> Admission Form</h2></center>
               <center>2021-2022</center>
-              <h3>Date:</h3> <input type="date" id="start" name="trip-start">
+              <h3>Date:</h3> <input type="date" id="start" name="trip-start">	
+				</span>
+
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+					<span class="label-input100"> Full Name of the Student's</span>
+					<input class="input100" type="text" name="name" placeholder="Enter Your Name">
+				</div>
+
+				<div class="wrap-input100" >
+					<span class="label-input100">Gender</span>
+					<div class="input100">
+					<input type="radio" value="Male" name="gender"> Male 
+					<input type="radio" value="Female" name="gender"> Female 
+					<input type="radio" value="Other" name="gender"> Other
+					</div>
+				</div>
+
+				<div class="wrap-input100 validate-input bg1"
+				data-validate="Please Type Your Mother's Name">
+					<span class="label-input100">Student's Mother's Name</span>
+					<input class="input100" type="text" name="name" placeholder="Enter Your Mother's Name">
+				</div>
+
+				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Your Aadhar card Number">
+					<span class="label-input100">Student's Aadhar card Number</span>
+					<input class="input100" type="Number" name="name" placeholder="Enter Your Aadhar card Number">
+				</div>
+
+				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Your Date of Birth">
+					<span class="label-input100">Student's Date of Birth</span>
+					<input class="input100" type="date" name="name" placeholder="Enter Your Aadhar card Number">
+				</div>
+
+				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Your Place of Birth">
+					<span class="label-input100">Student's Place of Birth</span>
+					<input class="input100" type="text" name="name" placeholder="Enter Your Place of Birth(eg. Vinchur,Tal-Niphad,Dist-Nashik)">
+				</div>
 
 
-  <hr>
-  <label> Full Name of the Pupil : </label> 
-<input type="text" name="firstname" size="15" required /> 
-<div>
-<label> 
-Gender :
-</label><br>
-<input type="radio" value="Male" name="gender"> Male 
-<input type="radio" value="Female" name="gender"> Female 
-<input type="radio" value="Other" name="gender"> Other
+				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Mother Tongue">
+					<span class="label-input100"> Mother Tongue</span>
+					<input class="input100" type="text" name="name" placeholder="Enter  Mother Tongue ">
+				</div>
 
-</div>
-<br>
-<label> Pupil's Mother's Name: </label> 
-<input type="text" name="middlename" size="15" required /> 
-<label> Student's Aadhar card No. </label>  
-<input type="text" name="contact" size="15"required /> 
-<label>Date of Birth :</label>
-<section id="date-of-birth-example-1">
-  <label for="start">Start date:</label>
-<input type="date" id="start" name="trip-start" value="2018-07-22">
-<br><br>
-<label> Place of Birth (Place Tal Dist) : </label> 
-<input type="text" name="firstname" size="15" required /> 
-<label> Mother Tongue : </label> 
-<input type="text" name="firstname" size="15" required /> 
-<label> Caste and Sub caste : </label> 
-<input type="text" name="firstname" size="15" required /> 
-   <label> Residential Address : </label> 
-<input type="text" name="firstname" size="15" required /> 
-<label> Contact No.s : </label>
-<br>
-<label>Father's Number</label> 
-<input type="text" name="firstname" size="15" required /> 
-<br>
-<label>Mother's Number</label> 
-<input type="text" name="firstname" size="15" required /> 
-<br>
-<label>Guardian's Number</label> 
-<input type="text" name="firstname" size="15" required /> 
-<label>Admission sought for class:</label> 
-<input type="text" name="firstname" size="15" required /> 
-<label>Last school attended(if any):</label> 
-<input type="text" name="firstname" size="15" /> 
 
-<center><button>SUBMIT</button></center>
+				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Caste and Sub caste">
+					<span class="label-input100">Caste and Sub caste</span>
+					<input class="input100" type="text" name="name" placeholder="Enter Caste and Sub caste">
+				</div>
+
+
+				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Address">
+					<span class="label-input100"> Residential Address </span>
+					<textarea class="input100" name="message" placeholder="Your Address Here..."></textarea>
+				</div>
+
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100" data-validate="Please Enter Number">
+					<span class="label-input100">Father's Number</span>
+					<input class="input100" type="phone" size="10" name="phone" placeholder="Enter Father's Number">
+				</div>
+
+
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Mother's Number</span>
+					<input class="input100" type="Phone" size="10" name="phone" placeholder="Enter Mother's Number">
+				</div>
+
+
+					<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Guardian's Number</span>
+					<input class="input100" type="phone" size="10" name="phone" placeholder="Enter Guardian's Number">
+				</div>
+						<div class="wrap-input100 validate-input bg1" data-validate="Please Select ">
+					<span class="label-input100">Admission Sought For Class</span>
+					<input class="input100" type="text" name="name" placeholder="">
+				</div>
+
+						<div class="wrap-input100 validate-input bg0 rs1-alert-validate" >
+					<span class="label-input100"> Last School Name attended (if any)</span>
+					<textarea class="input100" name="message" placeholder="Enter here"></textarea>
+				</div>
+
+			
+
+
+
+
+
+
+
+
+
+				
+
+			<!-- 	<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
+					<span class="label-input100">Message</span>
+					<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+				</div> -->
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/noui/nouislider.min.js"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
