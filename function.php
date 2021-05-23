@@ -5,7 +5,7 @@ if(isset($_POST['submit']))
 {
 	$sub=$_POST['sub'];
 	$desc=$_POST['des'];
-$result=conn_query($mysqli,"INSERT into record values('$sub','$des')");
+$result=mys_query($mysqli,"INSERT into record values('$sub','$des')");
 if($result)
 
 {

@@ -28,6 +28,12 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<script >
+	var today = new Date();
+	var time =today.getHours()+":"+today.getMinutes()+":"today.getSeconds();
+	document.getElementById("currentTime").value=time;
+</script>
+
 </head>
 <body>
 
@@ -40,12 +46,13 @@
               <br>New Blossoms English Medium School</h1> </center>
               <center> 
               	
-              	<h2>Vinchur,Tal-Niphad,Dist-Nashik-422305</h2></center>
+              	<h2>Vinchur,Tal-Niphad,Dist-Nashik-422306</h2></center>
               <center>
               	<br>
               	<h2> Admission Form</h2></center>
               <center>2021-2022</center>
-              <h3>Date:</h3> <input type="date" id="start" name="trip-start">	
+              
+              <h3>Date:</h3> <input type="text" id="currentTime" >	
 				</span>
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
@@ -108,20 +115,43 @@
 				</div>
 
 
-						<div class="wrap-input100 bg1 rs1-wrap-input100">
+						<div class="wrap-input100 bg1 rs1-wrap-input100"data-validate = "Please Enter Phone Number">
 					<span class="label-input100">Mother's Number</span>
 					<input class="input100" type="Phone" size="10" name="phone" placeholder="Enter Mother's Number">
 				</div>
 
 
-					<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<div class="wrap-input100 bg1 rs1-wrap-input100"data-validate = "Please Enter Phone Number">
 					<span class="label-input100">Guardian's Number</span>
 					<input class="input100" type="phone" size="10" name="phone" placeholder="Enter Guardian's Number">
 				</div>
-						<div class="wrap-input100 validate-input bg1" data-validate="Please Select ">
+
+
+				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Admission Sought For Class</span>
-					<input class="input100" type="text" name="name" placeholder="">
+					<div>
+						<select  class="js-select2" name="service">
+
+							<option>Select Class</option>
+							<option>Nursery</option>
+							<option>LKG</option>
+							<option>UKG</option>
+							<option>1st</option>
+							<option>2nd</option>
+							<option>3rd</option>
+							<option>4th</option>
+							<option>5th</option>
+							<option>6th</option>
+							<option>7th</option>
+							<option>8th</option>
+							<option>9th</option>
+							<option>10th</option>
+						
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
 				</div>
+
 
 						<div class="wrap-input100 validate-input bg0 rs1-alert-validate" >
 					<span class="label-input100"> Last School Name attended (if any)</span>
