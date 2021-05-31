@@ -140,7 +140,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                         </div>
                         <div class="form-group">
                             <label>Notice</label>
-                            <textarea name="post" class="form-control <?php echo (!empty($post_err)) ? 'is-invalid' : ''; ?>"><?php echo $note; ?></textarea>
+                            <textarea name="note" class="form-control <?php echo (!empty($post_err)) ? 'is-invalid' : ''; ?>"><?php echo $note; ?></textarea>
                             <span class="invalid-feedback"><?php echo $post_err;?></span>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
