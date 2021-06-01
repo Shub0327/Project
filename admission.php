@@ -28,165 +28,115 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-<script >
-	var today = new Date();
-	var time =today.getHours()+":"+today.getMinutes()+":"today.getSeconds();
-	document.getElementById("currentTime").value=time;
-</script>
-
 </head>
 <body>
 
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form action="fp.php" method="POST">
 				<span class="contact100-form-title">
 						<center>  <h1> Saraswati Education Society's
               <br>New Blossoms English Medium School</h1> </center>
               <center> 
               	
-              	<h2>Vinchur,Tal-Niphad,Dist-Nashik-422306</h2></center>
+              	<h2>Vinchur,Tal-Niphad,Dist-Nashik-422305</h2></center>
               <center>
               	<br>
               	<h2> Admission Form</h2></center>
               <center>2021-2022</center>
-              
-              <h3>Date:</h3> <input type="text" id="currentTime" >	
+              <h3>Date:</h3> <input type="date" id="start" name="trip-start">	
 				</span>
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
 					<span class="label-input100"> Full Name of the Student's</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Your Name">
+					<input class="input100" type="text" name="name" placeholder="Enter Your Name " required>
 				</div>
 
 				<div class="wrap-input100" >
 					<span class="label-input100">Gender</span>
 					<div class="input100">
 					<input type="radio" value="Male" name="gender"> Male 
-					<input type="radio" value="Female" name="gender"> Female 
-					<input type="radio" value="Other" name="gender"> Other
+					<input type="radio" value="Female" name="gender" required> Female 
+					<input type="radio" value="Other" name="gender" required> Other
 					</div>
 				</div>
 
 				<div class="wrap-input100 validate-input bg1"
 				data-validate="Please Type Your Mother's Name">
 					<span class="label-input100">Student's Mother's Name</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Your Mother's Name">
+					<input class="input100" type="text" name="mother" placeholder="Enter Your Mother's Name">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Your Aadhar card Number">
 					<span class="label-input100">Student's Aadhar card Number</span>
-					<input class="input100" type="Number" name="name" placeholder="Enter Your Aadhar card Number">
+					<input class="input100" type="Number" name="aadhar" placeholder="Enter Your Aadhar card Number">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Your Date of Birth">
 					<span class="label-input100">Student's Date of Birth</span>
-					<input class="input100" type="date" name="name" placeholder="Enter Your Aadhar card Number">
+					<input class="input100" type="date" name="dob" placeholder="Enter Your Aadhar card Number">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Your Place of Birth">
 					<span class="label-input100">Student's Place of Birth</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Your Place of Birth(eg. Vinchur,Tal-Niphad,Dist-Nashik)">
+					<input class="input100" type="text" name="place" placeholder="Enter Your Place of Birth(eg. Vinchur,Tal-Niphad,Dist-Nashik)">
 				</div>
 
 
 				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Mother Tongue">
 					<span class="label-input100"> Mother Tongue</span>
-					<input class="input100" type="text" name="name" placeholder="Enter  Mother Tongue ">
+					<input class="input100" type="text" name="toungue" placeholder="Enter  Mother Tongue ">
 				</div>
 
 
 				<div class="wrap-input100 validate-input bg1"data-validate="Please Enter Caste and Sub caste">
 					<span class="label-input100">Caste and Sub caste</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Caste and Sub caste">
+					<input class="input100" type="text" name="cast" placeholder="Enter Caste and Sub caste">
 				</div>
 
 
 				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Address">
 					<span class="label-input100"> Residential Address </span>
-					<textarea class="input100" name="message" placeholder="Your Address Here..."></textarea>
+					<textarea class="input100" name="address" placeholder="Your Address Here..."></textarea>
 				</div>
 
 
 				<div class="wrap-input100 bg1 rs1-wrap-input100" data-validate="Please Enter Number">
 					<span class="label-input100">Father's Number</span>
-					<input class="input100" type="phone" size="10" name="phone" placeholder="Enter Father's Number">
+					<input class="input100" type="phone" size="10" name="number" placeholder="Enter Father's Number">
 				</div>
 
 
-						<div class="wrap-input100 bg1 rs1-wrap-input100"data-validate = "Please Enter Phone Number">
+						<div class="wrap-input100 bg1 rs1-wrap-input100">
 					<span class="label-input100">Mother's Number</span>
-					<input class="input100" type="Phone" size="10" name="phone" placeholder="Enter Mother's Number">
+					<input class="input100" type="Phone" size="10" name="mothernum" placeholder="Enter Mother's Number">
 				</div>
 
 
-					<div class="wrap-input100 bg1 rs1-wrap-input100"data-validate = "Please Enter Phone Number">
+					<div class="wrap-input100 bg1 rs1-wrap-input100">
 					<span class="label-input100">Guardian's Number</span>
-					<input class="input100" type="phone" size="10" name="phone" placeholder="Enter Guardian's Number">
+					<input class="input100" type="phone" size="10" name="guardian" placeholder="Enter Guardian's Number">
 				</div>
-
-
-				<div class="wrap-input100 input100-select bg1">
+						<div class="wrap-input100 validate-input bg1" data-validate="Please Select ">
 					<span class="label-input100">Admission Sought For Class</span>
-					<div>
-						<select  class="js-select2" name="service">
-
-							<option>Select Class</option>
-							<option>Nursery</option>
-							<option>LKG</option>
-							<option>UKG</option>
-							<option>1st</option>
-							<option>2nd</option>
-							<option>3rd</option>
-							<option>4th</option>
-							<option>5th</option>
-							<option>6th</option>
-							<option>7th</option>
-							<option>8th</option>
-							<option>9th</option>
-							<option>10th</option>
-						
-						</select>
-						<div class="dropDownSelect2"></div>
-					</div>
+					<input class="input100" type="text" name="sought" placeholder="">
 				</div>
-
 
 						<div class="wrap-input100 validate-input bg0 rs1-alert-validate" >
 					<span class="label-input100"> Last School Name attended (if any)</span>
-					<textarea class="input100" name="message" placeholder="Enter here"></textarea>
+					<textarea class="input100" name="school" placeholder="Enter here"></textarea>
 				</div>
 
-			
-
-
-
-
-
-
-
-
-
-				
+		
 
 			<!-- 	<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
 					<span class="label-input100">Message</span>
 					<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
 				</div> -->
 
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
-						<span>
-							Submit
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
-
+				<input type="submit" value="Submit" name="submit">
+</form>
 
 
 <!--===============================================================================================-->
@@ -259,7 +209,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-23581568-13');
+  gtag('config', 'localhost');
 </script>
 
 </body>
