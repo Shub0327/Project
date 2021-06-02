@@ -26,7 +26,7 @@
     </script>
 </head>
 <body>
-<?php include('sidebar.html') ?>	
+<?php include('sidebar.php') ?>	
 
 <script src="../scripts.js"></script>
 </body>
