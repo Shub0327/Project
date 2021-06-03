@@ -15,17 +15,17 @@
                                     </li>
                                     
                                     <li>
-                                        <a href="#"><i class="fa fa-dashboard"></i> <span>Home</span> </a>
+                                        <a href="index.html"><i class="fa fa-dashboard"></i> <span>Home</span> </a>
                                      
                                     </li>
 
                                     <li>
-                                        <a href="ddata/tindex.php"><i class="fa fa-dashboard"></i> <span>Teacher</span> </a>
+                                        <a href="tindex.php"><i class="fa fa-dashboard"></i> <span>Teacher</span> </a>
                                      
                                     </li>
 
                                     <li>
-                                        <a href="ddata/sindex.php"><i class="fa fa-dashboard"></i> <span>Noticeboard</span> </a>
+                                        <a href="sindex.php"><i class="fa fa-dashboard"></i> <span>Noticeboard</span> </a>
                                      
                                     </li>
 

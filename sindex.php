@@ -81,58 +81,71 @@ $error="Something went wrong. Please try again";
                                     <div class="col-md-12">
                                         <div class="panel">
                                            
-<div class="panel-body">
+                                            <div class="panel-body">
 
 
 
 
-                       <div class="container">
-   
-   <div class="table-responsive">  
-    <h2 align="center">Export Student admission  data to Excel </h2><br /> 
-    <table class="table table-bordered">
-     <tr>  
-       <th>Student name</th>  
-       <th>Gender</th>  
-       <th>Student's Mother's Name</th>  
-       <th>Aadhar Card Number</th>
-       <th>Date Of Birth</th>
-       <th>Student's Place of Birth</th>
-       <th>Mother Tongue</th>
-       <th>Cast and Subcast</th>
-       <th>Residential Address</th>
-       <th>Father's Number</th>
-       <th>Mother's Number</th>
-       <th>Guardian's Number</th>
-       <th>Admission Sought For Class</th>
-       <th>Last School Name attended (if any)</th>
-     </tr>
-                       </div>
-
+                                                     <div class="row">
+        <div class="col-md-12">
+                    <div class="mt-5 mb-3 clearfix">
+                        <h2 class="pull-left">NoticeBoard</h2>
+                        <a href="screate.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Notice</a>
+                    </div>
+                </div>
+            </div>
+</div>
             <?php
-     while($row = mysqli_fetch_array($result))  
-     {  
-        echo '  <tr>  
-         <td>'.$row["name"].'</td>  
-         <td>'.$row["gender"].'</td>  
-         <td>'.$row["mother"].'</td>  
-         <td>'.$row["aadhar"].'</td>  
-         <td>'.$row["dob"].'</td>
-         <td>'.$row["place"].'</td>
-         <td>'.$row["toungue"].'</td>
-         <td>'.$row["cast"].'</td>
-         <td>'.$row["address"].'</td>
-         <td>'.$row["number"].'</td>
-         <td>'.$row["mothernum"].'</td>
-         <td>'.$row["guardian"].'</td>
-         <td>'.$row["sought"].'</td>
-         <td>'.$row["school"].'</td>
-         </tr>';  
-     }
-     ?>
+                    // Include config file
+                    require_once "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM Notice";
+                    if($result = mysqli_query($conn, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo '<table class="table table-bordered table-striped">';
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>#</th>";
+                                        echo "<th>Subject</th>";
+                                        echo "<th>Notice</th>";
+                                        echo "<th>Action</th>";
+                                       
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['sub'] . "</td>";
+                                        echo "<td>" . $row['note'] . "</td>";
+                                        ?>
+                                    <td>
+                                        <div>  <a href="sread.php?id='. $row['id'] .'" class="mr-3" title="View Notice" data-toggle="tooltip"><span class="fa fa-eye"></span></a>
+                                            &nbsp;
+                                        <a href="supdate.php?id='. $row['id'] .'" class="mr-3" title="Update Notice" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>
+                                            &nbsp;
+                                       <a href="sdelete.php?id='. $row['id'] .'" title="Delete Notice" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
+                                        </td>
+                               </tr>
+                           <?php                                  }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                        }
+                    } else{
+                        echo "Oops! Something went wrong. Please try again later.";
+                    }
+ 
+                    // Close connection
+                    mysqli_close($conn);
+                    ?>
 
 
-                                                      
+                                                        </div>
                                                     </div>
 
 

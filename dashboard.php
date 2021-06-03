@@ -39,7 +39,7 @@ if(strlen($_SESSION['alogin'])=="")
                         <div class="container-fluid">
                             <div class="row page-title-div">
                                 <div class="col-sm-6">
-                                    <h2 class="title">Dashboard</h2>
+                                    <h2  class="title">Main Dashboard</h2>
                                   
                                 </div>
                                 <!-- /.col-sm-6 -->
