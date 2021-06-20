@@ -110,6 +110,9 @@ $error="Something went wrong. Please try again";
                        </div>
 
             <?php
+            $connect = mysqli_connect("localhost", "root", "", "school");
+$sql = "SELECT * FROM rec";  
+$result = mysqli_query($connect, $sql);
      while($row = mysqli_fetch_array($result))  
      {  
         echo '  <tr>  
@@ -136,7 +139,12 @@ $error="Something went wrong. Please try again";
                                                     </div>
 
 
-
+<form method="post" action="Addexport.php">
+     <input type="submit" name="export" class="btn btn-success" value="Export" />
+    </form>
+ <div>
+     <br>
+ </div>
                                                     
 
                                                     

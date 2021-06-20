@@ -119,16 +119,25 @@ $error="Something went wrong. Please try again";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['sub'] . "</td>";
                                         echo "<td>" . $row['note'] . "</td>";
-                                        ?>
-                                    <td>
-                                        <div>  <a href="sread.php?id='. $row['id'] .'" class="mr-3" title="View Notice" data-toggle="tooltip"><span class="fa fa-eye"></span></a>
+                                        
+                                        echo "<td>";
+                                        ?>   
+
+                                          <div>  <a href="sread.php?id=<?php echo  $row['id'] ?>" class="mr-3" title="View Notice" data-toggle="tooltip"><span class="fa fa-eye"></span></a>
                                             &nbsp;
-                                        <a href="supdate.php?id='. $row['id'] .'" class="mr-3" title="Update Notice" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>
-                                            &nbsp;
-                                       <a href="sdelete.php?id='. $row['id'] .'" title="Delete Notice" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
-                                        </td>
-                               </tr>
-                           <?php                                  }
+
+                                                 <a href="supdate.php?id= <?php echo $row['id'] ?> " class="mr-3" title="Update Notice" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>
+                                                      &nbsp;
+                                                 <a href="sdelete.php?id= <?php echo $row['id'] ?>" title="Delete Notice" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
+
+                                           </div>
+                                    </td>
+                                    </tr>
+
+
+
+                                    <?php
+                                }
                                 echo "</tbody>";                            
                             echo "</table>";
                             // Free result set

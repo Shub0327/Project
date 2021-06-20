@@ -15,27 +15,27 @@
                                     </li>
                                     
                                     <li>
-                                        <a href="index.html"><i class="fa fa-dashboard"></i> <span>Home</span> </a>
+                                        <a href="index.html"><i class="fa fa-home"></i> <span>Home</span> </a>
                                      
                                     </li>
 
                                     <li>
-                                        <a href="tindex.php"><i class="fa fa-dashboard"></i> <span>Teacher</span> </a>
+                                        <a href="tindex.php"><i class="fa fa-user"></i> <span>Teacher</span> </a>
                                      
                                     </li>
 
                                     <li>
-                                        <a href="sindex.php"><i class="fa fa-dashboard"></i> <span>Noticeboard</span> </a>
+                                        <a href="sindex.php"><i class="fa fa-pencil-square-o"></i> <span>Noticeboard</span> </a>
                                      
                                     </li>
 
                                     <li>
-                                        <a href="AddmissionExport.php"><i class="fa fa-dashboard"></i> <span>Addmission</span> </a>
+                                          <a href="AddmissionExport.php"><i class="fa fa-square"></i> <span>Admission</span> </a>
                                      
                                     </li>
 
                                     <li>
-                                        <a href="dashboard.php"><i class="fa fa-dashboard"></i> <span>Result</span> </a>
+                                        <a href="dashboard.php"><i class="fa fa-graduation-cap"></i> <span>Result</span> </a>
                                      
                                     </li>
 

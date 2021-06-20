@@ -18,7 +18,7 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 $_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'maindashboard.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 } else{
     
     echo "<script>alert('Invalid Details');</script>";
@@ -35,7 +35,7 @@ echo "<script type='text/javascript'> document.location = 'maindashboard.php'; <
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin Login</title>
+        <title>Result</title>
         <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" >
         <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
         <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
@@ -46,48 +46,38 @@ echo "<script type='text/javascript'> document.location = 'maindashboard.php'; <
     <body class="">
         <div class="main-wrapper">
 
+            <div class="">
                 <div class="row">
- 
+ <h1 align="center">Student Result Management System</h1>
                   
-                    <div  class="col-lg-6">
-                        <section class="section">
+                   <div class="col-lg-6 visible-lg-block">
+
+<section class="section">
                             <div class="row mt-40">
                                 <div class="col-md-10 col-md-offset-1 pt-50">
-                                    <center>
-                            <div  class="row mt-80 ">
-                                        <div  class="col-md-80">
-                                            <div  class="panel">
+
+                                    <div class="row mt-30 ">
+                                        <div class="col-md-11">
+                                            <div class="panel">
                                                 <div class="panel-heading">
                                                     <div class="panel-title text-center">
-                                                        <h4>Admin Login</h4>
+                                                        <h4>For Students</h4>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body p-20">
 
                                                     <div class="section-title">
-                                                        
+                                                        <p class="sub-title">Student Result Management System</p>
                                                     </div>
 
                                                     <form class="form-horizontal" method="post">
-                                                    	<div  class="form-group">
-                                                    		<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                                                    		<div class="col-sm-10">
-                                                    			<input type="text" name="username" class="form-control" id="inputEmail3" placeholder="UserName">
-                                                    		</div>
-                                                    	</div>
-                                                    	<div class="form-group">
-                                                    		<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                                                    		<div class="col-sm-10">
-                                                    			<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                                    		</div>
-                                                    	</div>
-                                                    
-                                                        <div class="form-group mt-20">
-                                                    		<div class="col-sm-offset-2 col-sm-10">
-                                                           
-                                                    			<button type="submit" name="login" class="btn btn-success btn-labeled pull-right">Sign in<span class="btn-label btn-label-right"><i class="fa fa-check"></i></span></button>
-                                                    		</div>
-                                                    	</div>
+                                                        <div class="form-group">
+                                                            <label for="inputEmail3" class="col-sm-6 control-label">Search your result</label>
+                                                            <div class="col-sm-6">
+                                                               <a href="find-result.php">click here</a>
+                                                            </div>
+                                                        </div>
+                                                       
                                                     </form>
 
                                             
@@ -96,7 +86,7 @@ echo "<script type='text/javascript'> document.location = 'maindashboard.php'; <
                                                 </div>
                                             </div>
                                             <!-- /.panel -->
-                                            
+                                      
                                         </div>
                                         <!-- /.col-md-11 -->
                                     </div>
@@ -106,7 +96,6 @@ echo "<script type='text/javascript'> document.location = 'maindashboard.php'; <
                             </div>
                             <!-- /.row -->
                         </section>
-
                     </div>
                     <!-- /.col-md-6 -->
                 </div>

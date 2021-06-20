@@ -57,25 +57,8 @@ $result = $conn->query($sql);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbars-host">
-          <ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log orange" href="noticeboard.php" ><span>NoticeBoard</span></a></li>
-                    </ul>
-          <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-            
-            
-            <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
-            <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
-            <li class="nav-item"><a class="nav-link" href="admission.php">Admission</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="http://localhost:8012/Project/login.php">Login</a></li>
-
-          </ul>
-        </div>
-      </div>
+        
+      </dSiv>
     </nav>
   </header>
 <center>
