@@ -1,20 +1,93 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "school");
-$sql = "SELECT * FROM rec";  
-$result = mysqli_query($connect, $sql);
+session_start();
+error_reporting(0);
+include('includes/config.php');
+if(strlen($_SESSION['alogin'])=="")
+    {   
+    header("Location: index.php"); 
+    }
+    else{
+if(isset($_POST['submit']))
+{
+$studentname=$_POST['fullanme'];
+$roolid=$_POST['rollid']; 
+$studentemail=$_POST['emailid']; 
+$gender=$_POST['gender']; 
+$classid=$_POST['class']; 
+$dob=$_POST['dob']; 
+$status=1;
+$sql="INSERT INTO  tblstudents(StudentName,RollId,StudentEmail,Gender,ClassId,DOB,Status) VALUES(:studentname,:roolid,:studentemail,:gender,:classid,:dob,:status)";
+$query = $dbh->prepare($sql);
+$query->bindParam(':studentname',$studentname,PDO::PARAM_STR);
+$query->bindParam(':roolid',$roolid,PDO::PARAM_STR);
+$query->bindParam(':studentemail',$studentemail,PDO::PARAM_STR);
+$query->bindParam(':gender',$gender,PDO::PARAM_STR);
+$query->bindParam(':classid',$classid,PDO::PARAM_STR);
+$query->bindParam(':dob',$dob,PDO::PARAM_STR);
+$query->bindParam(':status',$status,PDO::PARAM_STR);
+$query->execute();
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
+{
+$msg="Student info added successfully";
+}
+else 
+{
+$error="Something went wrong. Please try again";
+}
+
+}
 ?>
-<html>  
- <head>  
-  <title>Addmission Export</title>  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
- </head>  
- <body>  
-  <div class="container">  
-   <br />  
-   <br />  
-   <br />  
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Noticeboard Management Panel< </title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" >
+        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
+        <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
+        <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
+        <link rel="stylesheet" href="css/prism/prism.css" media="screen" >
+        <link rel="stylesheet" href="css/select2/select2.min.css" >
+        <link rel="stylesheet" href="css/main.css" media="screen" >
+        <script src="js/modernizr/modernizr.min.js"></script>
+    </head>
+    <body class="top-navbar-fixed">
+        <div class="main-wrapper">
+
+            <!-- ========== TOP NAVBAR ========== -->
+  <?php include('includes/topbar.php');?> 
+            <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
+            <div class="content-wrapper">
+                <div class="content-container">
+
+                    <!-- ========== LEFT SIDEBAR ========== -->
+                   <?php include('includes/mainleftbar.php');?>  
+                    <!-- /.left-sidebar -->
+
+                    <div class="main-page">
+                            
+                         <div class="container-fluid">
+
+       
+</div>
+     
+                     
+                        <div class="container-fluid">
+                           
+                        <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel">
+                                           
+<div class="panel-body">
+
+
+
+
+                       <div class="container">
+   
    <div class="table-responsive">  
     <h2 align="center">Export Student admission  data to Excel </h2><br /> 
     <table class="table table-bordered">
@@ -34,7 +107,12 @@ $result = mysqli_query($connect, $sql);
        <th>Admission Sought For Class</th>
        <th>Last School Name attended (if any)</th>
      </tr>
-     <?php
+                       </div>
+
+            <?php
+            $connect = mysqli_connect("localhost", "root", "", "school");
+$sql = "SELECT * FROM rec";  
+$result = mysqli_query($connect, $sql);
      while($row = mysqli_fetch_array($result))  
      {  
         echo '  <tr>  
@@ -55,12 +133,55 @@ $result = mysqli_query($connect, $sql);
          </tr>';  
      }
      ?>
-    </table>
-    <br />
-    <form method="post" action="Addexport.php">
+
+
+                                                      
+                                                    </div>
+
+
+<form method="post" action="Addexport.php">
      <input type="submit" name="export" class="btn btn-success" value="Export" />
     </form>
-   </div>  
-  </div>  
- </body>  
+ <div>
+     <br>
+ </div>
+                                                    
+
+                                                    
+                                                 
+                                                   
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.col-md-12 -->
+                                </div>
+                    </div>
+                </div>
+                <!-- /.content-container -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- /.main-wrapper -->
+        <script src="js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script src="js/pace/pace.min.js"></script>
+        <script src="js/lobipanel/lobipanel.min.js"></script>
+        <script src="js/iscroll/iscroll.js"></script>
+        <script src="js/prism/prism.js"></script>
+        <script src="js/select2/select2.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            $(function($) {
+                $(".js-states").select2();
+                $(".js-states-limit").select2({
+                    maximumSelectionLength: 2
+                });
+                $(".js-states-hide").select2({
+                    minimumResultsForSearch: Infinity
+                });
+            });
+        </script>
+    </body>
 </html>
+<?PHP } ?>

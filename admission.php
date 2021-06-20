@@ -26,7 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/main1.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -200,7 +200,7 @@
 	    });
 	</script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="js/main1.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>

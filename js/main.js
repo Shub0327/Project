@@ -1,79 +1,181 @@
+/*! --------------------------------------------------------------
+# main.js
+#
+# Main theme js file for Options-admin template.
+# This is compressed js file. You get uncompressed version with download.
+--------------------------------------------------------------*/
 
-(function ($) {
-    "use strict";
+$(function($) {
+	"use strict";
 
+	// Toggle user info on sidebar
+	$('.user-info-handle').on('click', function(event){
+		event.preventDefault();
+		$('.user-info').toggleClass('closed');
+	});
 
-    /*==================================================================
-    [ Validate after type ]*/
-    $('.validate-input .input100').each(function(){
-        $(this).on('blur', function(){
-            if(validate(this) == false){
-                showValidate(this);
-            }
-            else {
-                $(this).parent().addClass('true-validate');
-            }
-        })    
-    })
-  
-  
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
+	// Toggle small sidebar
+	$('.small-nav-handle').on('click', function(event){
+		event.preventDefault();
+		$('.left-sidebar').toggleClass('small-nav');
+		$('.navbar-header').toggleClass('small-nav-header');
+	});
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+	// Toggle Mobile Nav
+	$('.mobile-nav-toggle').on('click', function(event){
+		event.preventDefault();
+		$('.left-sidebar').toggle();
+	})
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
+	// Toggle tooltips
+	$('[data-toggle="tooltip"]').tooltip();
 
-        return check;
-    });
+	// Toggle popovers
+	$('[data-toggle="popover"]').popover();
 
+	// For custom modal backdrop
+	$('.modal[data-backdrop-color]').on('show.bs.modal hide.bs.modal', function () {
+		$('body').toggleClass('modal-color-'+ $(this).data('backdropColor'));
+	});
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-           $(this).parent().removeClass('true-validate');
-        });
-    });
+	// Open right sidebar
+	$('.open-right-sidebar').on('click', function(event){
+		event.preventDefault();
+		$('.right-sidebar, .right-sidebar .sidebar-content').css('right','0px');
+	});
+	$('.right-sidebar .close-icon').on('click', function(event){
+		event.preventDefault();
+		$('.right-sidebar, .right-sidebar .sidebar-content').css('right','-400px');
+	});
 
-     function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
-    }
+	// Initialize panel controls
+	$('[data-panel-control]').lobiPanel();
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
+	// Visibility of source code button
+	$('.src-btn').hide();
+	$('.toggle-help-handle').on('click', function(event){
+		event.preventDefault();
+		$('.src-btn').toggle();
+	});
 
-        $(thisAlert).addClass('alert-validate');
+	// Visibility of source code button
+	$('.src-code').hide();
+	$('.toggle-code-handle').on('click', function(event){
+		event.preventDefault();
+		$('.src-code').toggle();
+	});
 
-        $(thisAlert).append('<span class="btn-hide-validate">&#xf136;</span>')
-        $('.btn-hide-validate').each(function(){
-            $(this).on('click',function(){
-               hideValidate(this);
-            });
-        });
-    }
+	// Toggle full screen
+	$('.full-screen-handle').on('click', function(event){
+		event.preventDefault();
+		if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+			(!document.mozFullScreen && !document.webkitIsFullScreen)) {
+			if (document.documentElement.requestFullScreen) {
+				document.documentElement.requestFullScreen();
+			} else if (document.documentElement.mozRequestFullScreen) {
+				document.documentElement.mozRequestFullScreen();
+			} else if (document.documentElement.webkitRequestFullScreen) {
+				document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+			}
+		} else {
+			if (document.cancelFullScreen) {
+				document.cancelFullScreen();
+			} else if (document.mozCancelFullScreen) {
+				document.mozCancelFullScreen();
+			} else if (document.webkitCancelFullScreen) {
+				document.webkitCancelFullScreen();
+			}
+		}
+	});
 
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-        $(thisAlert).removeClass('alert-validate');
-        $(thisAlert).find('.btn-hide-validate').remove();
-    }
-    
-    
+	// Toggle sidebar dropdown
+	$('.has-children').not('.open').find('.child-nav').slideUp('100');
+	$('.has-children>a').on('click', function(event){
+		event.preventDefault();
+		$(this).parent().toggleClass('open');
+		$(this).parent().find('.child-nav').slideToggle('500');
+	});
 
-})(jQuery);
+	// For Dropdown menu animation
+	var dropdownSelectors = $('.dropdown, .dropup');
+
+	// Custom function to read dropdown data
+	// =========================
+	function dropdownEffectData(target) {
+		// @todo - page level global?
+		var effectInDefault = null,
+			effectOutDefault = null;
+		var dropdown = $(target),
+			dropdownMenu = $('.dropdown-menu', target);
+		var parentUl = dropdown.parents('ul.nav');
+
+		// If parent is ul.nav allow global effect settings
+		if (parentUl.size() > 0) {
+			effectInDefault = parentUl.data('dropdown-in') || null;
+			effectOutDefault = parentUl.data('dropdown-out') || null;
+		}
+
+		return {
+			target: target,
+			dropdown: dropdown,
+			dropdownMenu: dropdownMenu,
+			effectIn: dropdownMenu.data('dropdown-in') || effectInDefault,
+			effectOut: dropdownMenu.data('dropdown-out') || effectOutDefault,
+		};
+	}
+
+	// Custom function to start effect (in or out)
+	// =========================
+	function dropdownEffectStart(data, effectToStart) {
+		if (effectToStart) {
+			data.dropdown.addClass('dropdown-animating');
+			data.dropdownMenu.addClass('animated');
+			data.dropdownMenu.addClass(effectToStart);
+		}
+	}
+
+	// Custom function to read when animation is over
+	// =========================
+	function dropdownEffectEnd(data, callbackFunc) {
+		var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+		data.dropdown.one(animationEnd, function() {
+			data.dropdown.removeClass('dropdown-animating');
+			data.dropdownMenu.removeClass('animated');
+			data.dropdownMenu.removeClass(data.effectIn);
+			data.dropdownMenu.removeClass(data.effectOut);
+
+			// Custom callback option, used to remove open class in out effect
+			if (typeof callbackFunc == 'function') {
+				callbackFunc();
+			}
+		});
+	}
+
+	// Bootstrap API hooks
+	// =========================
+	dropdownSelectors.on({
+		"show.bs.dropdown": function() {
+			// On show, start in effect
+			var dropdown = dropdownEffectData(this);
+			dropdownEffectStart(dropdown, dropdown.effectIn);
+		},
+		"shown.bs.dropdown": function() {
+			// On shown, remove in effect once complete
+			var dropdown = dropdownEffectData(this);
+			if (dropdown.effectIn && dropdown.effectOut) {
+				dropdownEffectEnd(dropdown, function() {});
+			}
+		},
+		"hide.bs.dropdown": function(e) {
+			// On hide, start out effect
+			var dropdown = dropdownEffectData(this);
+			if (dropdown.effectOut) {
+				e.preventDefault();
+				dropdownEffectStart(dropdown, dropdown.effectOut);
+				dropdownEffectEnd(dropdown, function() {
+					dropdown.dropdown.removeClass('open');
+				});
+			}
+		},
+	});
+});
