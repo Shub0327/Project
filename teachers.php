@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
+{
+    header("location: ");
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>New Blossom English Medium School</title>     
+    <title>New Blossom English Medium School</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -31,12 +43,37 @@
 
     <!-- Modernizer for Portfolio -->
     <script src="js/modernizer.js"></script>
->
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+        table tr td:last-child{
+            width: 120px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
 
 </head>
 <body class="host_version"> 
-
-
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+</nav>
+	
     <!-- LOADER -->
 	<div id="preloader">
 		<div class="loader-container">
@@ -60,132 +97,94 @@
                     <span class="icon-bar"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-host">
+					<ul class="nav navbar-nav navbar-right">
+                        <li><a class="hover-btn-new log orange" href="noticeboard.php" ><span>NoticeBoard</span></a></li>
+                    </ul>
+
 					<ul class="navbar-nav ml-auto">
-						
-                        <li class="nav-item "><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        
-                        
-                        <li class="nav-item"><a class="nav-link" href="teachers.php">Teachers</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="activities.html">Activities</a></li>
-                        <li class="nav-item"><a class="nav-link" href="admission.php">Admission</a></li>
-                        <li class="nav-item"><a class="nav-link" href="find-result.php">Result</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php">Login</a></li>
+				
+						<li class="nav-item "><a class="nav-link" href="index.html">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+						<li class="nav-item active"><a class="nav-link" href="teachers.html">Teachers</a></li>
+						<li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+						<li class="nav-item"><a class="nav-link" href="admission.php">Admission</a></li>
+						<li class="nav-item"><a class="nav-link" href="find-result.php">Result</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.php">Login</a></li>
 					</ul>
-					
 				</div>
 			</div>
 		</nav>
 	</header>
 	<!-- End header -->
 	
-	                </div>
-                </div>
-            </div>
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1>Teachers<span class="m_1"></span></h1>
 		</div>
-    </div><!-- end section -->
+	</div>
 
-        <div class="parallax section dbcolor">
-        <div class="container">
-            <center><font size="40">Events</font></center>
-            </div><!-- end row -->
-        </div><!-- end container --> 
-    <!-- end section -->
-<br>
-<style>
-* {
-  box-sizing: border-box;
-  
-}
+ <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-">
+                    <div class="mt-5 mb-5 clearfix">
+                        <h2  class="pull-left">Our staff`s information</h2>
+                       
+                    </div>
 
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);;
-  
-  
-  
-  
-  
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
+                    <?php
+                    // Include config file
+                    require_once "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM profile";
+                    if($result = mysqli_query($conn, $sql)){
+                        if(mysqli_num_rows($result) > 0){
 
 
+                            echo '<table class="table table-bordered table-striped">';
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>Name</th>";
+                                        echo "<th>Education</th>";
 
-<div class="row" >
-  <div class="column"  >
-    <img src="images\events\indepedent.jpg" alt="Snow" style="width:100% ; padding: 20px; border-radius: 30px;" ><br>
-        <br>  <center><h2>indepedent Day</h2></center><br>
-  </div>
-  <div class="column">
-    <img src="images\events\ashadi.jpg" alt="Forest" style="width:100% ; padding: 20px; border-radius: 30px;"><br>
-  <br>  <center><h2>Ashadi Yekadashi</h2></center><br>
-  </div>
-  <div class="column">
-    <img src="images\events\sports.jpg" alt="Mountains" style="width:100%; padding: 20px; border-radius: 30px;"><br>
-   <br> <center><h2>Sports Day</h2></center><br>
-  </div>
-</div>
-
-<br>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-  box-shadow: 4px 4px 8px 4px rgba(8, 8, 8, 0.2);;
-  
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
+                                       
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['name'] . "</td>";
+                                        echo "<td>" . $row['post'] . "</td>";
+                 
+                                        
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                        }
+                    } else{
+                        echo "Oops! Something went wrong. Please try again later.";
+                    }
+ 
+                    // Close connection
+                    mysqli_close($conn);
+                    ?>
+                </div>
+            </div>        
+        </div>
+    </div>
 
 
 
-<div class="row">
-  <div class="column">
-    <img src="images\events\rango.jpg" alt="Snow" style="width:100% ; padding: 20px; border-radius: 30px;"><br>
-        <br>  <center><h2>Rangoli</h2></center><br>
-  </div>
-  <div class="column">
-    <img src="images\events\red.jpeg" alt="Forest" style="width:100% ; padding: 20px ; border-radius: 30px;"><br>
-    <br><center><h2>Red Day</h2></center><br>
-  </div>
-  <div class="column">
-    <img src="images\events\skating.jpg" alt="Mountains" style="width:100%; padding: 20px; border-radius: 30px;"><br>
-   <br> <center><h2>Skating Compition</h2></center><br>
-  </div>
-</div><br>
-
-
-
-
-                        
-
-                    </div><!-- end carousel -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </div><!-- end section -->
 
  
+
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -255,7 +254,7 @@
     <!-- ALL JS FILES -->
     <script src="js/all.js"></script>
     <!-- ALL PLUGINS -->
-    <script src="js/custom.js"></script>
+    <script src="js/custom.js"></script>s
 
 </body>
 </html>

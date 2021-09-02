@@ -8,7 +8,7 @@ include('includes/config.php');?>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>School Result Management System</title>
+        <title>School Result</title>
         <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" >
         <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
         <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
@@ -25,7 +25,7 @@ include('includes/config.php');?>
                         <div class="panel login-box">
                             <div class="panel-heading">
                                 <div class="panel-title text-center">
-                                    <h4>School Result Management System</h4>
+                                    <h4>School Result</h4>
                                 </div>
                             </div>
                             <div class="panel-body p-20">
@@ -64,7 +64,7 @@ foreach($results as $result)
                                     </div>
 
                                        <div class="col-sm-6">
-                                                               <a href="index.php">Back to Home</a>
+                                                               <a href="index.html">Back to Home</a>
                                                             </div>
                                 </form>
 
@@ -73,7 +73,7 @@ foreach($results as $result)
                             </div>
                         </div>
                         <!-- /.panel -->
-                        <p class="text-muted text-center"><small>Copyright © <a href="http://www.phpgurukul.com/">PHPGURUKUL</a> 2017</small></p>
+                        
                     </div>
                     <!-- /.col-md-6 col-md-offset-3 -->
                 </div>
